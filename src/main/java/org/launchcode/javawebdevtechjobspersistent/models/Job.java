@@ -9,12 +9,11 @@ import java.util.Optional;
 @Entity
 public class Job extends AbstractEntity {
 
-//    @NotNull(message="Employer required")
+    @NotNull(message="Employer required")
     @ManyToOne
     private Employer employer;
 
     @ManyToMany
-//    @NotNull
     private List<Skill> skills = new ArrayList<>();
 
     public Job(String name, Employer anEmployer, List<Skill> someSkills) {
@@ -44,7 +43,4 @@ public class Job extends AbstractEntity {
         this.skills = skills;
     }
 
-//    public void addSkill(Skill skill) {
-//        this.skills.add(skill);
-//    }
 }

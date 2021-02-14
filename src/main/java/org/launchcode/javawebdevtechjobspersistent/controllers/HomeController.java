@@ -59,13 +59,11 @@ public class HomeController {
             model.addAttribute("title", "Add Job");
             Employer employerResult = employerRepository.findById(employer).orElse(null);
             List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
-            newJob.setSkills(skillObjs);//do I actually need this?
+            newJob.setSkills(skillObjs);
             Job jobToAdd = new Job(newJob.getName(), employerResult, skillObjs);
             jobRepository.save(jobToAdd);
             model.addAttribute("job", jobToAdd);
 
-
-//        return "redirect:";
             return "view";
         }
     }
