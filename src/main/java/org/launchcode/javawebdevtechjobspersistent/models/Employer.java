@@ -16,10 +16,11 @@ public class Employer extends AbstractEntity {
     private String location;
 
     @OneToMany
-    @JoinColumn
+    @JoinColumn(name="employer")
     private final List<Job> jobs = new ArrayList<>();
 
-    public Employer(@NotBlank(message = "Location is required") @Size(min = 3, message = "Location name must be at least 3 characters long") String location) {
+    public Employer(String name, String location) {
+        super(name);
         this.location = location;
     }
 
